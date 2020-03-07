@@ -1,0 +1,37 @@
+
+<scroll-view scroll-x>
+  <view class='forecast-list'>
+    <view class="forecast-item" bindtap='onTapMessage' data-index="{{index}}" wx:for="{{typeArray}}">
+      <view class= 'forecast-type {{index == activeIndex ? "active" :"" }}' >{{item.type}}</view>
+    </view>
+  </view>
+</scroll-view>
+
+<view class="cu-card article {{isCard?'no-card':''}}">
+  <view wx:for="{{list}}"  wx:key="{{index}}"  class="cu-item shadow" bindtap='GetDetialMessage'>
+    <view data-index="{{index}}" style="{{item.txtStyle}}" class="title" >
+      <view data-index="{{index}}" class="IfEnd" id= "{{item.IfEnd}}">{{item.txt}}</view>
+    </view>
+    <view class="content" data-index="{{index}}">
+      <image src="https://wxdc.bsrse.com/media/image/jc.jpg" mode="aspectFill" data-index="{{index}}"></image>
+      <view class="desc" data-index="{{index}}">
+        <view class="text-content" data-index="{{index}}"> {{item.jianjie}}</view>
+        <view data-index="{{index}}">
+          <view class="cu-tag bg-red light sm round" wx:if="{{activeIndex==0 || activeIndex==-1}}">{{item.key}}</view>
+          <view class="cu-tag bg-green light sm round" wx:if="{{activeIndex==1}}">{{item.key}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!--<view class="item-box">
+  <view class="items">
+    <view wx:for="{{list}}"  wx:key="{{index}}"  class="item"  bindtap='GetDetialMessage'>
+      <view data-index="{{index}}" style="{{item.txtStyle}}" class="inner txt">
+      <text class="IfEnd" id= "{{item.IfEnd}}"></text>{{item.txt}}
+      </view>
+    </view>
+    
+  </view>
+</view>-->

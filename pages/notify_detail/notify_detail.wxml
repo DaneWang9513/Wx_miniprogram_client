@@ -1,0 +1,34 @@
+<view class="cu-card dynamic no-card">
+  <view class="cu-item shadow">
+    <view class="cu-list menu-avatar">
+      <view class="cu-item" style="height: 200rpx;">
+      <view class="cu-avatar round lg" style="background-image:url(https://wxdc.bsrse.com/media/image/jc.jpg);"></view>
+        <view class="content flex-sub">
+          <view>{{subject}}</view>
+          <view class="text-gray text-sm flex justify-between">
+            发布日期：{{date}}       发布人:{{user}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <import src="../../wxParse/wxParse.wxml"/>
+    <view class="wxParse">
+        <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+    </view>
+    <view class="grid flex-sub padding-lr {{isCard?'col-3 grid-square':'col-1'}}">
+      <view class="bg-img {{isCard?'':'only-img'}}" style="background-image:url(https://wxdc.bsrse.com/media/image/jcgg.jpg);" wx:for="{{isCard?9:1}}" wx:key="{{index}}">
+      </view>
+    </view>
+    <view class="cu-list menu-avatar comment solids-top">
+      <view class="cu-item">
+        <view class="content">
+          <view class="text-grey">温馨提示</view>
+          <view class="text-gray text-content text-df">
+            小程序暂不支持附件预览，请使用OA系统或京车移动app查看
+          </view>
+        </view>
+      </view>
+    </view>
+    
+  </view>
+</view>

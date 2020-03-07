@@ -1,0 +1,69 @@
+<!--pages/order/order.wxml-->
+<calendar
+  calendarConfig="{{calendarConfig}}"
+  bind:onTapDay="onTapDay"
+  bind:afterTapDay="afterTapDay"
+  bind:onSwipe="onSwipe"
+  bind:whenChangeWeek="whenChangeWeek"
+  bind:whenChangeMonth="whenChangeMonth"
+  bind:afterCalendarRender="afterCalendarRender"
+></calendar>
+<scroll-view class="container" scroll-y="true">
+  <block wx:for="{{orderList}}" wx:key="">
+    <view class="orderList">
+      <view class="order-title">
+        
+          <view class="order-content-info">
+          <view class="order-content-info-date">
+          订单时间：{{item.date}}</view>
+          </view>
+        <view class="order-title-state">订单已提交</view>
+      </view>
+      <!-- <view class="order-content"> -->
+      <block wx:for="{{item.order}}" wx:key="" >
+        <view class="order-content">
+        <image class="order-content-restaurantImg" lazy-load='true'
+         src="{{item.src==''|| item.src==null?defaultImg:path+item.src}}"></image>
+         <view>
+         <view class="order-content-name">{{item.name}} X {{item.numb}}</view>
+         <view class="order-content-name2">领取时间：{{item.lq_date_time}}</view>
+          <view class="order-content-name1" hidden="{{item.jz_status==0||item.fh_status=='符合'}}">温馨提示：总预订数目前未达阈值(最小制作数)</view>
+          </view>
+        </view>
+       
+      </block>
+        <!-- <view class="order-content-info"> -->
+          <!-- <view class="order-content-info-price">￥ {{item.price}}</view> -->
+          <!-- <view class="order-content-info-date">
+          {{item.date}}</view> -->
+          <!-- <view class="order-content-info-howToDistribute">
+          由 {{item.howToDistribute}} 提供服务</view> -->
+        <!-- </view> -->
+      <!-- </view> -->
+      
+        <view class="order-footer" >
+          <!-- <view class="order-footer-orderAgain">再来一单</view> -->
+          <view class="order-footer-goToComment" bindtap='toComment' data-index='{{index}}' hidden="{{item.jz_status==1}}">{{item.state == '订单已完成'?'该订单已取消':'取消订单'}}</view>
+          <view class="order-title-state1" hidden="{{item.jz_status!=1}}">该订单已不可取消</view>
+        </view>
+      
+    </view>
+  </block> 
+</scroll-view>
+
+<view wx:if="{{orderList.length == 0}}" class='alert'>
+<image class='blank' src='/images/warning.png'></image>
+</view>
+<view wx:if="{{orderList.length == 0}}" class='no-history'>没有历史订单</view>
+
+<view class="cu-modal {{modalName=='Image'?'show':''}}">
+  <view class="cu-dialog1">
+    <view class="bg-img" style="background-image: url('https://wxdc.bsrse.com/media/image/loading-white.gif');height:200px;">
+      <view class="cu-bar justify-end text-white">
+        <view class="action" bindtap="hideModal">
+          <text class="cuIcon-close "></text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

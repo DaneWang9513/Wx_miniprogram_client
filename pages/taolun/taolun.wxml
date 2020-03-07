@@ -1,0 +1,14 @@
+<!--pages/Message_1Form/Message_1Form.wxml-->
+
+
+<view class="item-box">
+  <view class="items">
+    <view class="total">讨论园地</view>
+    <view wx:for="{{list}}"  wx:key="{{index}}"  class="item"  bindtap='GetDetialMessage'>
+      <view data-index="{{index}}" style="{{item.txtStyle}}" class="inner txt">
+      <text class="IfEnd" id= "{{item.IfEnd}}"></text>{{item.txt}}
+      </view>
+    </view>
+    
+  </view>
+</view>

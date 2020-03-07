@@ -1,0 +1,265 @@
+<!--pages/mes/mes.wxml-->
+<view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="action">
+      <text class="cuIcon-title text-orange "></text> 资产扫码
+    </view>
+    <view class="action">
+      <button class="cu-btn bg-green shadow" bindtap='scan' >点击扫码</button>
+    </view>
+</view>
+<view class="cu-list menu card-menu margin-top">
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-info text-green"></text>
+        <text class="text-grey">资产编码</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">{{zichan.ResCode}}</text>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-info text-green"></text>
+        <text class="text-grey">资产名称</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">{{zichan.ResName}}</text>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-info text-green"></text>
+        <text class="text-grey">性能配置</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">{{zichan.ResType}}</text>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-info text-green"></text>
+        <text class="text-grey">规格型号</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">{{zichan.ResSpec}}</text>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-info text-green"></text>
+        <text class="text-grey">状态</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">{{zichan.ResStatus}}</text>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-info text-green"></text>
+        <text class="text-grey">系统分类</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">{{zichan.ResClass}}</text>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-info text-green"></text>
+        <text class="text-grey">实际使用人</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">{{zichan.ResRational}}</text>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-info text-green"></text>
+        <text class="text-grey">重量</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">{{zichan.ResWeight}}</text>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-info text-green"></text>
+        <text class="text-grey">台账登记人</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">{{zichan.ResManuCode}}</text>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-info text-green"></text>
+        <text class="text-grey">出厂日期</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">{{zichan.ResManuDateTime}}</text>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-info text-green"></text>
+        <text class="text-grey">使用日期</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">{{zichan.ResWorkDateTime}}</text>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-info text-green"></text>
+        <text class="text-grey">IP地址</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">{{zichan.EmsIP}}</text>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-info text-green"></text>
+        <text class="text-grey">原值</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">{{zichan.EmsFirstValue}}</text>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-info text-green"></text>
+        <text class="text-grey">分类</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">{{zichan.EmsTechClass}}</text>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-info text-green"></text>
+        <text class="text-grey">备注</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">{{zichan.Remark}}</text>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-info text-green"></text>
+        <text class="text-grey">资产编号</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">{{zichan.ExString_A}}</text>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-info text-green"></text>
+        <text class="text-grey">附件</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">{{zichan.ExString_B}}</text>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-info text-green"></text>
+        <text class="text-grey">操作系统</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">{{zichan.ExString_C}}</text>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-info text-green"></text>
+        <text class="text-grey">办公软件</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">{{zichan.ExString_D}}</text>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-info text-green"></text>
+        <text class="text-grey">班组</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">{{zichan.ExString_G}}</text>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-info text-green"></text>
+        <text class="text-grey">在固状态</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">{{zichan.ExString_H}}</text>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-info text-green"></text>
+        <text class="text-grey">数量</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">{{zichan.ExDecimal_A}}</text>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-info text-green"></text>
+        <text class="text-grey">折旧率</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">{{zichan.ExDecimal_D}}</text>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-info text-green"></text>
+        <text class="text-grey">内存配置</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">{{zichan.ExDecimal_E}}</text>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-info text-green"></text>
+        <text class="text-grey">所属部门</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">{{zichan.ResWorkCenter}}</text>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-info text-green"></text>
+        <text class="text-grey">工位</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">{{zichan.ResOP}}</text>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-info text-green"></text>
+        <text class="text-grey">生产厂家</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">{{zichan.ResManufacturer}}</text>
+      </view>
+    </view>
+  </view>
+<view class="cu-modal {{modalName=='Image'?'show':''}}">
+  <view class="cu-dialog1">
+    <view class="bg-img" style="background-image: url('https://wxdc.bsrse.com/media/image/loading-white.gif');height:200px;">
+      <view class="cu-bar justify-end text-white">
+        <view class="action" bindtap="hideModal">
+          <text class="cuIcon-close "></text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

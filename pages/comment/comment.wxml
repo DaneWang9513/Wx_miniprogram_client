@@ -1,0 +1,13 @@
+<!--pages/comment/comment.wxml-->
+<scroll-view class="container" scroll-y="true">
+  <block wx:for="{{orderMap.order}}" wx:key="" wx:for-index='idx'>
+    <view class="order-content">
+      <image class="order-content-img" src="{{item.src==''|| item.src==null?defaultImg:path+item.src}}"></image>
+      <view class="order-content-name">{{item.name}}</view>
+    </view>
+    
+  </block>
+</scroll-view>
+
+
+<button class='btn' bindtap='submit_comment'>确认取消</button>

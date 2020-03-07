@@ -1,0 +1,34 @@
+<!--pages/Message_2Form/Message_2Form.wxml-->
+<view class="cu-modal {{modalName=='Modal'&&f_used!='no'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content" style="color:#39b54a">操作简介</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl" style="font-size:17px">
+      签到者可查看本人签到情况
+    </view>
+  </view>
+</view>
+
+<view class="item-box">
+  <view class="items">
+    <!--<view class="total">签到总人数为：{{list.length}}</view>-->
+    <view class="total">本人签到记录：</view>
+    <view wx:for="{{list}}"  wx:key="{{index}}"  class="item">
+      <view class="line">
+      <text class="ID">签到主题：{{item.topic}}</text>
+      </view>
+      <view class="line">
+      <text class="NAME">签到内容：{{item.content}}</text>
+      </view>
+      <view class="line">
+      <text class="TOPIC">结束时间：{{item.endTime}}</text>
+      </view>
+      
+      
+    </view>
+  </view>
+</view>

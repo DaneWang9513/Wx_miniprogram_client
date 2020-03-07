@@ -1,0 +1,28 @@
+<!--pages/Message_1Form/Message_1Form.wxml-->
+
+<view class="cu-modal {{modalName=='Modal'&&f_used!='no'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content" style="color:#39b54a">操作简介</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl" style="font-size:17px">
+      发起人可点击查看签到详情(可左滑删除)
+    </view>
+  </view>
+</view>
+<view class="item-box">
+  <view class="items">
+    <view class="total">发起了{{list.length}}个签到</view>
+    <view wx:for="{{list}}"  wx:key="{{index}}"  class="item"  bindtap='GetDetialMessage'>
+    
+      <view bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}" style="{{item.txtStyle}}" class="inner txt">
+      <text class="IfEnd" id= "{{item.IfEnd}}">{{item.state}} </text>{{item.txt}}
+      </view>
+      <button data-index="{{index}}" bindtap = "DeleteItem" class="inner del">删除</button>
+    </view>
+    
+  </view>
+</view>

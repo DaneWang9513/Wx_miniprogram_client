@@ -1,0 +1,19 @@
+<!-- This is our View -->
+<view class="bg-white padding-lr" style="margin-top: 100px">
+  <view class="solids-bottom padding-xs flex align-center">
+    <view class="flex-sub text-center">
+      <view class="solid-bottom text-xsl">
+        <image src="{{tempFilePaths}}" mode="aspecFill" style="width: 450rpx; height: 450rpx; margin: 0 120rpx" bindtap="previewImage" />
+      </view>
+      <view class="padding">成功生成签到二维码(可点击二维码，长按保存)</view>
+    </view>
+  </view>
+</view>
+<!--<view> 发起签到成功！</view>
+<text>\n</text>
+签到二维码：
+
+
+    <span style="font-family:'Comic Sans MS';font-size:18px;color:#333333;"><view class="zn-uploadimg">   
+    <image src="{{tempFilePaths}}" mode="aspecFill" style="width: 450rpx; height: 450rpx; margin: 0 120rpx" bindtap="previewImage" />  
+</view></span>-->

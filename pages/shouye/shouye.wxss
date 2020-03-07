@@ -1,0 +1,277 @@
+/**index.wxss**/
+@import '../../colorui/main.wxss';
+@import '../../colorui/icon.wxss';
+.row {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 120rpx;
+}
+
+.item_size {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 200rpx;
+    margin-top: 30rpx;
+    }
+
+.img {
+    width: 96rpx;
+    height: 96rpx;
+    margin-top: 15rpx
+}
+
+.text {
+    font-size: 18px;
+    align-content: flex-end;
+    margin-top: 15rpx;
+    margin-bottom: 15rpx
+}
+.scrolltxt{padding:0 20rpx;background:#f8f8f8;}
+.marquee_box {position:relative;color:rgb(236, 49, 16);height:90rpx;display:block;overflow:hidden;} 
+.marquee_text {white-space: nowrap;position:absolute;top:0;font-size:28rpx;height:90rpx;line-height:90rpx;}
+.img_lb{
+    width: 90rpx;
+    height: 90rpx;
+    display: flex;
+}
+.panel {
+    width: 100%;
+}
+
+.slide-wrapper swiper .slide-image {
+    width: 100%;
+    height: 360rpx;
+}
+
+.lunbo {
+    height: 252rpx;
+}
+
+.main-banner {
+    width: 100%;
+    height: 252rpx;
+    overflow: hidden;
+    margin-bottom: 40rpx;
+}
+
+.main-banner image {
+    width: 100%;
+}
+
+.panel .list-item {
+    padding: 30rpx 30rpx 10rpx 30rpx;
+}
+
+.panel .list-item .list-item-title {
+    height: 32rpx;
+    padding-left: 14rpx;
+    margin-bottom: 10rpx;
+    line-height: 32rpx;
+    font-size: 32rpx;
+    color: #919191;
+    border-left: 6rpx solid #ff5000;
+}
+
+.panel .list-item .list-item-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.panel .list-item .list-item-content .item {
+    position: relative;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    width: calc((100% - 30rpx) / 2);
+    height: 178rpx;
+    padding: 0rpx;
+    margin: 20rpx 0 25rpx;
+    background-color: #fff;
+    border-radius: 12rpx;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+.panel .list-item .list-item-content .item button {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 178rpx;
+    background-color: transparent;
+}
+
+.panel .list-item .list-item-content .item button::after {
+    border: none;
+}
+
+.panel .list-item .list-item-content .item .icon {
+    margin: 20rpx auto 10rpx;
+    width: 88rpx;
+}
+
+.panel .list-item .list-item-content .item .icon .icon-avatar {
+    width: 82rpx;
+    height: 82rpx;
+}
+
+.panel .list-item .list-item-content .item .title {
+    flex: 1;
+    line-height: 40rpx;
+    font-size: 28rpx;
+    color: #666666;
+    text-align: center;
+}
+
+.new-body {
+    width: 100%;
+}
+
+.new-body .new-part {
+    padding: 30rpx 40rpx;
+    width: 610rpx;
+    height: 276rpx;
+    background: rgba(255,255,255,1);
+    border-radius: 8rpx;
+    margin: 0 auto 20rpx;
+}
+
+.new-body .new-part .part-title {
+    width: 128rpx;
+    height: 45rpx;
+    font-size: 32rpx;
+    font-family: PingFangSC-Medium,PingFang SC;
+    font-weight: bold;
+    color: rgba(51,51,51,1);
+    line-height: 45rpx;
+    margin-bottom: 40rpx;
+}
+
+.new-body .new-part .part-box {
+    padding: 0 20rpx;
+}
+
+.new-body .new-part .part-box .part-list image {
+    width: 88rpx;
+    height: 88rpx;
+    margin-bottom: 10rpx;
+}
+
+.new-body .new-part .part-box .part-list .name {
+    font-size: 24rpx;
+    color: rgba(102,102,102,1);
+}
+.add_icon{
+    position: fixed;
+    width: 42px;
+    height: 42px;
+    bottom: 30px;
+    right: 20px;
+}
+.DrawerPage {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0vw;
+    background-color: #f1f1f1;
+    transition: all 0.4s;
+  }
+  
+  .DrawerPage.show {
+    transform: scale(0.9, 0.9);
+    left: 85vw;
+    box-shadow: 0 0 60rpx rgba(0, 0, 0, 0.2);
+    transform-origin: 0;
+  }
+  
+  .DrawerWindow {
+    position: absolute;
+    width: 85vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    transform: scale(0.9, 0.9) translateX(-100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s;
+  }
+  
+  .DrawerWindow.show {
+    transform: scale(1, 1) translateX(0%);
+    opacity: 1;
+    pointer-events: all;
+  }
+  
+  .DrawerClose {
+    position: absolute;
+    width: 40vw;
+    height: 100vh;
+    right: 0;
+    top: 0;
+    color: transparent;
+    padding-bottom: 30rpx;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.6));
+    letter-spacing: 5px;
+    font-size: 50rpx;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s;
+  }
+  
+  .DrawerClose.show {
+    opacity: 1;
+    pointer-events: all;
+    width: 15vw;
+    color: #fff;
+  }
+  
+  .DrawerPage .cu-bar.tabbar .action button.icon {
+    width: 64rpx;
+    height: 64rpx;
+    line-height: 64rpx;
+    margin: 0;
+    display: inline-block;
+  }
+  
+  .DrawerPage .cu-bar.tabbar .action .cu-avatar {
+    margin: 0;
+  }
+  
+  .DrawerPage .nav {
+    flex: 1;
+  }
+  
+  .DrawerPage .nav .cu-item.cur {
+    border-bottom: 0;
+    position: relative;
+  }
+  
+  .DrawerPage .nav .cu-item.cur::after {
+    content: "";
+    width: 10rpx;
+    height: 10rpx;
+    background-color: currentColor;
+    position: absolute;
+    bottom: 10rpx;
+    border-radius: 10rpx;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+  
+  .DrawerPage .cu-bar.tabbar .action {
+    flex: initial;
+  }

@@ -1,0 +1,109 @@
+<!--pages/geren_zc/geren_zc.wxml-->
+<view class="cu-bar bg-white solid-bottom">
+  <view class="action">
+    <text class="cuIcon-titles text-orange"></text> 个人资产
+  </view>
+</view>
+<view class="padding-top padding-lr" wx:for="{{zichan}}" wx:key id="main-{{index}}">
+  <view class='cu-bar solid-bottom bg-white'>
+    <view class='action'>
+      <text class='cuIcon-title text-green'></text>资产{{index+1}} </view>
+  </view>
+  <view class="cu-list menu-avatar">
+    <view class="cu-item" style="height:40px">
+      <view class="content" style="left: 40rpx;">
+        <text class="cuIcon-info text-green"></text>
+        <text class="text-grey">编号</text>
+      </view>
+      <view class="action1">
+        <text class="text-grey text-sm">{{item._code}}</text>
+      </view>
+    </view>
+    <view class="cu-item" style="height:40px">
+      <view class="content" style="left: 40rpx;">
+        <text class="cuIcon-info text-green"></text>
+        <text class="text-grey">名称</text>
+      </view>
+      <view class="action1">
+        <text class="text-grey text-sm">{{item._name}}</text>
+      </view>
+    </view>
+    <view class="cu-item" style="height:40px">
+      <view class="content" style="left: 40rpx;">
+        <text class="cuIcon-info text-green"></text>
+        <text class="text-grey">规格</text>
+      </view>
+      <view class="action1">
+        <text class="text-grey text-sm">{{item._spec}}</text>
+      </view>
+    </view>
+    <view class="cu-item" style="height:40px">
+      <view class="content" style="left: 40rpx;">
+        <text class="cuIcon-info text-green"></text>
+        <text class="text-grey">型号</text>
+      </view>
+      <view class="action1">
+        <text class="text-grey text-sm">{{item._type}}</text>
+      </view>
+    </view>
+    <view class="cu-item" style="height:40px">
+      <view class="content" style="left: 40rpx;">
+        <text class="cuIcon-info text-green"></text>
+        <text class="text-grey">分类</text>
+      </view>
+      <view class="action1">
+        <text class="text-grey text-sm">{{item._class}}</text>
+      </view>
+    </view>
+    <view class="cu-item" style="height:40px">
+      <view class="content" style="left: 40rpx;">
+        <text class="cuIcon-info text-green"></text>
+        <text class="text-grey">车间</text>
+      </view>
+      <view class="action1">
+        <text class="text-grey text-sm">{{item._prodUnit}}</text>
+      </view>
+    </view>
+    <view class="cu-item" style="height:40px">
+      <view class="content" style="left: 40rpx;">
+        <text class="cuIcon-info text-green"></text>
+        <text class="text-grey">班组</text>
+      </view>
+      <view class="action1">
+        <text class="text-grey text-sm">{{item._workCenter}}</text>
+      </view>
+    </view>
+    <view class="cu-item" style="height:40px">
+      <view class="content" style="left: 40rpx;">
+        <text class="cuIcon-info text-green"></text>
+        <text class="text-grey">责任人</text>
+      </view>
+      <view class="action1">
+        <text class="text-grey text-sm">{{item._respon}}</text>
+      </view>
+    </view>
+    <view class="cu-item" style="height:40px">
+      <view class="content" style="left: 40rpx;">
+        <text class="cuIcon-info text-green"></text>
+        <text class="text-grey">使用人</text>
+      </view>
+      <view class="action1">
+        <text class="text-grey text-sm">{{item._user}}</text>
+      </view>
+    </view>
+
+  </view>
+</view>
+
+<view class="cu-modal {{modalName=='Image'?'show':''}}">
+  <view class="cu-dialog1">
+    <view class="bg-img" style="background-image: url('https://wxdc.bsrse.com/media/image/loading-white.gif');height:200px;">
+      <view class="cu-bar justify-end text-white">
+        <view class="action" bindtap="hideModal">
+          <text class="cuIcon-close "></text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+

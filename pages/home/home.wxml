@@ -1,0 +1,32 @@
+<!--pages/home/home.wxml-->
+<view id="orderPage">
+<scroll-view bindscrolltolower="lower" class="orderPage-sideBar" scroll-y="true" style="height:100%" hidden="{{hidden}}">
+<block wx:for="{{menu}}" wx:key="">
+  <view class="menuList">
+    <view class="menu {{index==selected?'selected':''}}" 
+      data-index="{{index}}" 
+      catchtap="turnMenu">{{item.typeName}}</view>
+  </view>
+</block>
+</scroll-view>
+
+<scroll-view class="foodList" scroll-y="true" hidden="{{hidden}}">
+      <view class="title">{{menu[selected].typeName}}(每日10点~11点更新）</view>
+      <block wx:for="{{menu[selected].menuContent}}" wx:key="">
+        <view class="food">
+          <image class="img" src="{{item.src==''|| item.src==null?defaultImg:path+item.src}}" lazy-load='true'></image>
+          <view class="food-info">
+            <view class="name">{{item.name}}</view>
+            <!--<view class="sales">销量 {{item.sales}} 
+            </view>-->
+            <view class="price">￥{{item.price}}</view>
+          </view>
+        </view>
+      </block>
+</scroll-view>
+</view>
+
+
+
+
+    

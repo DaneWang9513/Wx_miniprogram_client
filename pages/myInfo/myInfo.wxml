@@ -1,0 +1,40 @@
+<!--pages/myInfo/myInfo.wxml-->
+<scroll-view scroll-y class="scrollPage">
+  <view class="UCenter-bg">
+     <view class="header">
+    <view class="userImg">
+   
+    <open-data type="userAvatarUrl"></open-data>
+    </view>
+    <view class="userName">{{first_name}}</view>
+    <image src="https://wxdc.bsrse.com/media/image/wave.gif" mode="scaleToFill" class="gif-wave"></image>
+  </view></view>
+
+  <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+    <view class="cu-item arrow" bindtap="changePassword">
+      <view class="content">
+        <text class="cuIcon-formfill text-grey"></text>
+        <text class="text-grey">修改密码</text>
+      </view>
+    </view>
+    <view class="cu-item arrow" bindtap="signOut">
+      <view class="content">
+        <text class="cuIcon-creativefill text-grey"></text>
+        <text class="text-grey">注销登录</text>
+      </view>
+    </view>
+  </view>
+  <view class="cu-tabbar-height"></view>
+</scroll-view>
+<modal wx:if='{{showModal}}' class="layer" animation="{{pwdAnimationData}}" bindcancel="cancel" bindconfirm='confirm'>
+    <view class="password-item">
+           <view class="item-info">新密码</view>
+           <view class="pwd">
+            <input value="{{passwordNew}}" style="flex-grow:1 " password="true" bindinput="passwordNew" /> 
+           </view>
+           <view class="item-info">确认密码</view>
+           <view class="pwd">
+            <input value="{{passwordConfirm}}" style="flex-grow:1" password="true" bindinput="passwordConfirm" /> 
+           </view>
+    </view>
+  </modal>

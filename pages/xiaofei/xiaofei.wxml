@@ -1,0 +1,68 @@
+
+<!--index.wxml-->
+<calendar
+  calendarConfig="{{calendarConfig}}"
+  bind:onTapDay="onTapDay"
+  bind:afterTapDay="afterTapDay"
+  bind:onSwipe="onSwipe"
+  bind:whenChangeWeek="whenChangeWeek"
+  bind:whenChangeMonth="whenChangeMonth"
+  bind:afterCalendarRender="afterCalendarRender"
+></calendar>
+<view class="content-view">
+  <view class="ui-flex  ui-p20">
+    <text>现金</text>
+    <text class="text-expend">余额：</text>
+    <!--<text class="text-today-expend-num">￥{{xj_ye}}</text>-->
+    
+    <block wx:for="{{yu_e}}" wx:key="">
+    <text class="text-today-expend-num">￥{{item.New_card_cash}}</text>
+    </block>
+  </view>
+  <view class="ui-flex  ui-p20">
+    <text>补贴</text>
+    <text class="text-expend">余额：</text>
+    <!--<text class="text-month-expend-num">￥{{bt_ye}}</text>-->
+    
+    <block wx:for="{{yu_e}}" wx:key="">
+    <text class="text-month-expend-num">￥{{item.New_card_subsidy}}</text>
+    </block>
+  </view>
+  <view class="today-bill">
+    消费及充值记录：
+  </view>
+  <scroll-view class="container" scroll-y="true">
+  <block wx:for="{{orderList}}" wx:key="">
+    <view class="orderList">
+      <view class="order-title">
+          <view class="order-content-info">
+          <view class="order-content-info-date">
+          操作时间：{{item.wacc_sj}}</view>
+          </view>
+        
+      </view>
+      <!-- <view class="order-content"> -->
+      <block wx:for="{{item.order}}" wx:key="" >
+        <view class="order-content">
+        <image class="spend-way-icon" src="/images/xiaofeijilu.png"></image>
+         <view hidden='{{item.Cash_amt>=0 ? true : false}}' class="order-content-name">现金消费：{{item.Cash_amt}}</view>
+         <view hidden='{{item.Cash_amt<0 ? true : false}}' class="order-content-name">现金充值：{{item.Cash_amt}}</view>
+         <view hidden='{{item.Sub_amt>=0 ? true : false}}' class="order-content-name">补贴消费：{{item.Sub_amt}}</view>
+         <view hidden='{{item.Sub_amt<0 ? true : false}}' class="order-content-name">补贴充值：{{item.Sub_amt}}</view>
+        </view>
+      </block>
+    </view>
+  </block> 
+</scroll-view>
+</view>
+<view class="cu-modal {{modalName=='Image'?'show':''}}">
+  <view class="cu-dialog1">
+    <view class="bg-img" style="background-image: url('https://wxdc.bsrse.com/media/image/loading-white.gif');height:200px;">
+      <view class="cu-bar justify-end text-white">
+        <view class="action" bindtap="hideModal">
+          <text class="cuIcon-close "></text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

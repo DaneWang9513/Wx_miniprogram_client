@@ -1,0 +1,11 @@
+/* pages/mes/mes.wxss */
+@import '../../colorui/main.wxss';
+@import '../../colorui/icon.wxss';
+.page {
+  height: 100Vh;
+  width: 100vw;
+}
+
+.page.show {
+  overflow: hidden;
+}

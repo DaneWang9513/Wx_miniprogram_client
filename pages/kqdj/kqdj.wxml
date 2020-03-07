@@ -1,0 +1,53 @@
+<!--pages/ini/ini.wxml-->
+<form bindsubmit='formSubmit'>
+  <view class="cu-form-group margin-top">
+		<view class="title">考勤类型</view>
+		<picker name="picker_hx" bindchange="bindPickerChange_hx" value="{{pic_array[hx_index].id}}" data-selecthx="{{pic_array[hx_index].name}}" range="{{pic_array}}" range-key="{{'name'}}">
+			<view class="picker">
+				{{pic_array[hx_index].name}} 
+			</view>
+		</picker>
+	</view>
+  <view class="cu-form-group">
+		<view class="title">考勤起始日期</view>
+		<picker mode="date" value="{{inputTime}}"  bindchange="bindTimeChange" name="inputTime">
+			<view class="picker">
+				{{inputTime}}
+			</view>
+		</picker>
+	</view>
+  <view class="cu-form-group">
+		<view class="title">考勤起始时间</view>
+		<picker mode="time" value="{{inputTime1}}"  bindchange="bindTimeChange1" name="inputTime1">
+			<view class="picker">
+				{{inputTime1}}
+			</view>
+		</picker>
+	</view>
+  <view class="cu-form-group">
+		<view class="title">考勤结束日期</view>
+		<picker mode="date" value="{{inputTime2}}"  bindchange="bindTimeChange2" name="inputTime2">
+			<view class="picker">
+				{{inputTime2}}
+			</view>
+		</picker>
+	</view>
+  <view class="cu-form-group">
+		<view class="title">考勤结束时间</view>
+		<picker mode="time" value="{{inputTime3}}"  bindchange="bindTimeChange3" name="inputTime3">
+			<view class="picker">
+				{{inputTime3}}
+			</view>
+		</picker>
+	</view>
+  <view class="cu-form-group">
+		<view class="title">计时(单位:小时)</view>
+		<input placeholder="填写整数" name="topic" confirm-type="done" bindinput="bindInput_1"></input>
+	</view>
+  <view class="cu-form-group">
+		<textarea maxlength="-1" disabled="{{modalName!=null}}" name="content" bindblur="bindTextAreaBlur" bindinput="bindInput_2" placeholder="考勤备注"></textarea>
+	</view>
+  <view class="padding flex flex-direction">
+    <button class="cu-btn bg-green margin-tb-sm lg" type="primary" form-type='submit' open-type="getUserInfo">提交</button>
+  </view>
+</form>

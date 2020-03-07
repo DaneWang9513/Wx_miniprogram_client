@@ -1,0 +1,16 @@
+<view class="cu-modal {{modalName=='Modal'&&f_used!='no'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content" style="color:#39b54a">操作简介</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl" style="font-size:17px">
+      签到者点击扫描发起人提供的二维码完成签到
+    </view>
+  </view>
+</view>
+<view class="padding flex flex-direction" style="margin-top: 200px;">
+  <button class="cu-btn bg-green margin-tb-sm lg" bindtap='scan'>点击扫码</button>
+</view>

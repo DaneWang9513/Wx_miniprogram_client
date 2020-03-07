@@ -1,0 +1,5 @@
+{
+  "usingComponents": {},
+  "navigationBarTitleText": "今日菜谱",
+  "enablePullDownRefresh": true
+}

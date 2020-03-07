@@ -1,0 +1,69 @@
+{
+  "pages": [
+    "pages/admin/admin",
+    "pages/shouye/shouye",
+    "pages/caidan/caidan",
+    "pages/home/home",
+    "pages/order/order",
+    "pages/myInfo/myInfo",
+    "pages/comment/comment",
+    "pages/checkComment/checkComment",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/xiaofei/xiaofei",
+    "pages/news/news",
+    "pages/new_detail/new_detail",
+    "pages/notify/notify",
+    "pages/notify_detail/notify_detail",
+    "pages/kqjl/kqjl",
+    "pages/kqdj/kqdj",
+    "pages/fqqd/shouye",
+    "pages/fqqd/ini",
+    "pages/fqqd/next",
+    "pages/Message_1Form/Message_1Form",
+    "pages/Message_2Form/Message_2Form",
+    "pages/Detial_Message/Detial_Message",
+    "pages/taolun/taolun",
+    "pages/taolun_detail/taolun_detail",
+    "pages/zixun/zixun",
+    "pages/dd_bm/dd_bm",
+    "component/modal/modal",
+    "pages/mes/mes",
+    "pages/geren_zc/geren_zc",
+    "pages/bumen_zc/bumen_zc",
+    "pages/gzcx/gzcx"
+  ],
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#61aadb",
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "images/news_on.png",
+        "iconPath": "images/news.png",
+        "pagePath": "pages/zixun/zixun",
+        "text": "资讯"
+      },
+      {
+        "selectedIconPath": "images/index_on.png",
+        "iconPath": "images/index.png",
+        "pagePath": "pages/shouye/shouye",
+        "text": "首页"
+      },
+      
+      {
+        "selectedIconPath": "images/about_on.png",
+        "iconPath": "images/about.png",
+        "pagePath": "pages/myInfo/myInfo",
+        "text": "我的"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#01969b",
+    "navigationBarTitleText": "京车小程序",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+}

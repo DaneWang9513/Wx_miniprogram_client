@@ -1,0 +1,49 @@
+<!--pages/admin/admin.wxml-->
+<!--登录页面-->
+<view class="cu-modal {{modalName=='Modal'&&f_used!='no'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content" style="color:#39b54a">简介</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl" style="font-size:17px">
+      "京车mobile"小程序仅面向京车公司企业内部，为员工提供查看新闻公告、预订餐品、消费(充值)查询、考勤等功能
+    </view>
+  </view>
+</view>
+<!--<view>
+  <modalView show="{{showModal}}" bindcancel="modalCancel" bindconfirm='modalConfirm' single='{{single}}'>
+    <view class='modal-content'>
+      <scroll-view scroll-y class='main-content'>
+        <view>简介</view>
+        <view style="margin-top:20rpx">"京车mobile"小程序仅面向京车公司企业内部</view>
+        <text>为员工提供查看新闻公告、预订餐品、消费(充值)查询、考勤等功能</text>
+      </scroll-view>
+    </view>
+  </modalView>
+</view>-->
+<swiper class="screen-swiper round-dot " indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+  <swiper-item wx:for="{{swiperList}}" wx:key>
+    <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+    <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+  </swiper-item>
+  </swiper>
+<view class="item">
+      <view class="login-item">
+            
+           <view><input value="{{username}}" placeholder='员工卡号' bindinput="usernameInput" /></view>
+      </view>
+
+      <view class="login-item"> 
+           <view class="login-pwd">
+           <input value="{{password}}" placeholder='密码' style="flex-grow:1" password="true" bindinput="passwordInput" /> 
+           <!-- <text> 忘记密码 </text> -->
+           </view>
+      </view>
+
+      <view class="login-item bottom">
+           <button class="login-btn" bindtap="login">登录</button>
+      </view>
+</view>

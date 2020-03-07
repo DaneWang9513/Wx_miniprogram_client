@@ -1,0 +1,53 @@
+<!--pages/dd_bm/dd_bm.wxml-->
+<calendar
+  calendarConfig="{{calendarConfig}}"
+  bind:onTapDay="onTapDay"
+  bind:afterTapDay="afterTapDay"
+  bind:onSwipe="onSwipe"
+  bind:whenChangeWeek="whenChangeWeek"
+  bind:whenChangeMonth="whenChangeMonth"
+  bind:afterCalendarRender="afterCalendarRender"
+></calendar>
+<view class="ui-flex  ui-p20">
+    <text>盒饭1</text>
+    <text class="text-expend">数量：</text>
+    <!--<text class="text-today-expend-num">￥{{xj_ye}}</text>-->
+    
+    <block wx:for="{{yu_e}}" wx:key="">
+    <text class="text-today-expend-num">{{item.number_h1}}</text>
+    </block>
+  </view>
+  <view class="ui-flex  ui-p20">
+    <text>盒饭2</text>
+    <text class="text-expend">数量：</text>
+    <!--<text class="text-month-expend-num">￥{{bt_ye}}</text>-->
+    
+    <block wx:for="{{yu_e}}" wx:key="">
+    <text class="text-month-expend-num">{{item.number_h2}}</text>
+    </block>
+  </view>
+<view class="table">
+  <view class="tr bg-g">
+    <view class="th">姓名</view>
+    <view class="th">餐品名称</view>
+    <view class="th ">餐品数量</view>
+  </view>
+  <block wx:for="{{orderList}}">
+    <view class="tr">
+      <view class="td">{{item.first_name}}</view>
+      <view class="td">{{item.food_name}}</view>
+      <view class="td">{{item.number}}</view>
+    </view>
+  </block>
+</view>
+<view class="cu-modal {{modalName=='Image'?'show':''}}">
+  <view class="cu-dialog1">
+    <view class="bg-img" style="background-image: url('https://wxdc.bsrse.com/media/image/loading-white.gif');height:200px;">
+      <view class="cu-bar justify-end text-white">
+        <view class="action" bindtap="hideModal">
+          <text class="cuIcon-close "></text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

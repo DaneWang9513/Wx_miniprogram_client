@@ -1,0 +1,8 @@
+{
+  "usingComponents": {},
+  "navigationBarTitleText": "本部门订单统计",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "calendar": "/component/calendar/index"
+  }
+}

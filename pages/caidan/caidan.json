@@ -1,0 +1,34 @@
+{
+  "usingComponents": {},
+  "navigationBarTitleText": "预订菜单",
+  "enablePullDownRefresh": true,
+  "tabBar": {
+    "color": "#3399FF",
+    "selectedColor": "#3399FF",
+    "backgroundColor": "#fff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/caidan/caidan",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home-selected.png",
+        "color": "white",
+        "text": "预订菜单"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "iconPath": "images/order.png",
+        "selectedIconPath": "images/order-selected.png",
+        "color": "white",
+        "text": "订单"
+      },
+      {
+        "pagePath": "pages/myInfo/myInfo",
+        "iconPath": "images/myInfo.png",
+        "selectedIconPath": "images/myInfo-selected.png",
+        "color": "white",
+        "text": "我的"
+      }
+    ]
+  }
+}

@@ -1,0 +1,293 @@
+<!--index.wxml-->
+<scroll-view scroll-y class="DrawerPage {{modalName=='viewModal'?'show':''}}" bindtouchstart='touchStart' bindtouchend="touchEnd" data-target="viewModal">
+<view class="cu-bar bg-white solid-bottom">
+    <view class="action">
+      <text class="cuIcon-title text-orange "></text> 订餐管理
+    </view>
+</view>
+<view class="cu-list grid col-4 no-border" style="padding:0;">
+    <view class="cu-item" wx:for="{{iconList}}" wx:key wx:if="{{index<gridCol*2}}" bindtap="{{item.tap}}" id="{{item.id}}">
+      <view class="cuIcon-{{item.icon}} text-{{item.color}}">
+      </view>
+      <text>{{item.name}}</text>
+    </view>
+</view>
+<view class="cu-bar bg-white solid-bottom">
+    <view class="action">
+      <text class="cuIcon-title text-orange "></text> 考勤管理
+    </view>
+</view>
+<view class="cu-list grid col-4 no-border" style="padding:0;">
+    <view class="cu-item" wx:for="{{iconList1}}" wx:key wx:if="{{index<gridCol*2}}" bindtap="{{item.tap}}" id="{{item.id}}">
+      <view class="cuIcon-{{item.icon}} text-{{item.color}}">
+      </view>
+      <text>{{item.name}}</text>
+    </view>
+</view>
+<view wx:if="{{is_gzcx==1}}" class="cu-bar bg-white solid-bottom">
+    <view class="action">
+      <text class="cuIcon-title text-orange "></text> 工资管理
+    </view>
+</view>
+<view wx:if="{{is_gzcx==1}}" class="cu-list grid col-4 no-border" style="padding:0;">
+    <view class="cu-item" wx:for="{{iconList4}}" wx:key wx:if="{{item.is_show==1}}" bindtap="{{item.tap}}" id="{{item.id}}">
+      <view class="cuIcon-{{item.icon}} text-{{item.color}}">
+      </view>
+      <text>{{item.name}}</text>
+    </view>
+</view>
+<view wx:if="{{is_mes==1}}" class="cu-bar bg-white solid-bottom">
+    <view class="action">
+      <text class="cuIcon-title text-orange "></text> MES管理
+    </view>
+</view>
+<view wx:if="{{is_mes==1}}" class="cu-list grid col-4 no-border" style="padding:0;">
+    <view class="cu-item" wx:for="{{iconList2}}" wx:key wx:if="{{item.is_show==1}}" bindtap="{{item.tap}}" id="{{item.id}}">
+      <view class="cuIcon-{{item.icon}} text-{{item.color}}">
+      </view>
+      <text>{{item.name}}</text>
+    </view>
+</view>
+<view class="cu-bar bg-white solid-bottom">
+    <view class="action">
+      <text class="cuIcon-title text-orange "></text> 签到工具
+    </view>
+</view>
+<view class="cu-list grid col-4 no-border" style="padding:0;">
+    <view class="cu-item" wx:for="{{iconList3}}" wx:key wx:if="{{index<gridCol*2}}" bindtap="{{item.tap}}" id="{{item.id}}">
+      <view class="cuIcon-{{item.icon}} text-{{item.color}}">
+      </view>
+      <text>{{item.name}}</text>
+    </view>
+</view>
+</scroll-view>
+<!--<scroll-view scroll-y class="DrawerPage {{modalName=='viewModal'?'show':''}}">
+<view class="container" bindtouchstart='touchStart' bindtouchend="touchEnd" data-target="viewModal">
+    <ad unitId="adunit-a526875ff9d5acbc" wx:if="{{ads.status==1}}"></ad>
+    <view class="panel">
+        <view class="main-banner" wx:if="{{ads.status==0}}">
+            <image mode="widthFix" src="/images/banner1.jpg"></image>
+        </view>
+        <view class="list-item">
+            <view class="list-item-title">食堂订餐</view>
+            <view class="list-item-content">
+                <navigator class="item" url="../home/home" bindtap="caipu" id='caipu'>
+                    <view class="icon">
+                        <image class="icon-avatar" src="../../res/img/jrcp.png"></image>
+                    </view>
+                    <view class="title">今日菜谱</view>
+                </navigator>
+                <navigator class="item" url="../caidan/caidan" bindtap="caidan" id='caidan'>
+                    <view class="icon">
+                        <image class="icon-avatar" src="../../res/img/cdxz.png"></image>
+                    </view>
+                    <view class="title">预订菜单</view>
+                </navigator>
+                <navigator class="item" url="../order/order" bindtap="dingdan" id='dingdan'>
+                    <view class="icon">
+                        <image class="icon-avatar" src="../../res/img/ddgl.png"></image>
+                    </view>
+                    <view class="title">订单管理</view>
+                </navigator>
+                <navigator class="item" url="../xiaofei/xiaofei" bindtap="xfcz" id='xfcz'>
+                    <view class="icon">
+                        <image class="icon-avatar" src="../../res/img/xfcz.png"></image>
+                    </view>
+                    <view class="title">消费充值记录</view>
+                </navigator>
+                <navigator class="item" url="../dd_bm/dd_bm" bindtap="ddbm" id='ddbm'>
+                    <view class="icon">
+                        <image class="icon-avatar" src="../../res/img/ddbm.png"></image>
+                    </view>
+                    <view class="title">本部门报餐统计</view>
+                </navigator>
+            </view>
+        </view>
+        <view class="list-item">
+            <view class="list-item-title">考勤管理</view>
+            <view class="list-item-content">
+                <navigator class="item" url="../kqjl/kqjl" bindtap="kqjl" id='kqjl'>
+                    <view class="icon">
+                        <image class="icon-avatar" src="../../res/img/dkjl.png"></image>
+                    </view>
+                    <view class="title">考勤记录</view>
+                </navigator>
+                <navigator class="item" url="../kqdj/kqdj" bindtap="kqdj" id='kqdj'>
+                    <view class="icon">
+                        <image class="icon-avatar" src="../../res/img/kqdj.png"></image>
+                    </view>
+                    <view class="title">考勤登记</view>
+                </navigator>
+            </view>
+        </view>
+        <view wx:if="{{is_mes==1}}" class="list-item">
+            <view class="list-item-title">MES模块</view>
+            <view class="list-item-content">
+                <navigator wx:if="{{is_smzc==1}}" class="item" url="../mes/mes" bindtap="smzc" id='smzc'>
+                    <view class="icon">
+                        <image class="icon-avatar" src="../../res/img/smzc.png"></image>
+                    </view>
+                    <view class="title">资产扫码</view>
+                </navigator>
+            </view>
+        </view>
+        <view class="list-item">
+            <view class="list-item-title">签到工具</view>
+            <view class="list-item-content">
+                <navigator class="item" url="../fqqd/ini" bindtap="fqqd" id='fqqd'>
+                    <view class="icon">
+                        <image class="icon-avatar" src="../../res/img/smqd.png"></image>
+                    </view>
+                    <view class="title">发起活动</view>
+                </navigator>
+                <navigator class="item" url="../fqqd/shouye" bindtap="smqd" id='smqd'>
+                    <view class="icon">
+                        <image class="icon-avatar" src="../../res/img/sm.png"></image>
+                    </view>
+                    <view class="title">扫码签到</view>
+                </navigator>
+                <navigator class="item" url="../Message_1Form/Message_1Form" bindtap="yfq" id='yfq'>
+                    <view class="icon">
+                        <image class="icon-avatar" src="../../res/img/yfq.png"></image>
+                    </view>
+                    <view class="title">已发起</view>
+                </navigator>
+                <navigator class="item" url="../Message_2Form/Message_2Form" bindtap="yqd" id='yqd'>
+                    <view class="icon">
+                        <image class="icon-avatar" src="../../res/img/yqd.png"></image>
+                    </view>
+                    <view class="title">已签到</view>
+                </navigator>
+            </view>
+        </view>
+        <!--<view class="list-item">
+            <view class="list-item-title">第三方系统</view>
+            <view class="list-item-content">
+                <navigator class="item" url="../baobiao/baobiao" bindtap="baobiao" id='baobiao'>
+                    <view class="icon">
+                        <image class="icon-avatar" src="../../res/img/baobiao.png"></image>
+                    </view>
+                    <view class="title">报表平台</view>
+                </navigator>
+                
+            </view>
+        </view>
+        <view class="list-item">
+            <view class="list-item-title">客服服务</view>
+            <view class="list-item-content">
+                <navigator class="item" url="" bindtap="kf">
+                    <button openType="contact"></button>
+                    <view class="icon">
+                        <image class="icon-avatar" src="../../res/img/kf.png"></image>
+                    </view>
+                    <view class="title">客服</view>
+                </navigator>
+                <view class="item">
+                    <button openType="share"></button>
+                    <view class="icon">
+                        <image class="icon-avatar" src="../../res/img/fx.png"></image>
+                    </view>
+                    <view class="title">分享</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+</scroll-view>-->
+<view class="DrawerClose {{modalName=='viewModal'?'show':''}}" bindtap="hideModal">
+			<text class="cuIcon-pullright"></text>
+</view>
+<scroll-view scroll-y class="DrawerWindow {{modalName=='viewModal'?'show':''}}">
+    <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg">
+        <view class="cu-item arrow" bindtap="adddetial_jrcp">
+            <view class="content">
+                <text class="cuIcon-fork text-grey"></text>
+                <text class="text-grey">今日菜谱</text>
+            </view>
+        </view>
+        <view class="cu-item arrow" bindtap="adddetial_ydcd">
+            <view class="content">
+                <text class="cuIcon-fork text-grey"></text>
+                <text class="text-grey">预订菜单</text>
+            </view>
+        </view>
+        <view class="cu-item arrow" bindtap="adddetial_ddgl">
+            <view class="content">
+                <text class="cuIcon-fork text-grey"></text>
+                <text class="text-grey">订单管理</text>
+            </view>
+        </view>
+        <view class="cu-item arrow" bindtap="adddetial_xfcz">
+            <view class="content">
+                <text class="cuIcon-fork text-grey"></text>
+                <text class="text-grey">消费充值记录</text>
+            </view>
+        </view>
+        <view class="cu-item arrow" bindtap="adddetial_bmtj">
+            <view class="content">
+                <text class="cuIcon-fork text-grey"></text>
+                <text class="text-grey">本部门报餐统计</text>
+            </view>
+        </view>
+        <view class="cu-item arrow" bindtap="adddetial_kqjl">
+            <view class="content">
+                <text class="cuIcon-fork text-grey"></text>
+                <text class="text-grey">考勤记录</text>
+            </view>
+        </view>
+        <view class="cu-item arrow" bindtap="adddetial_kqdj">
+            <view class="content">
+                <text class="cuIcon-fork text-grey"></text>
+                <text class="text-grey">考勤登记</text>
+            </view>
+        </view>
+        <view wx:if="{{is_gzcx==1}}" class="cu-item arrow" bindtap="adddetial_gzcx">
+            <view class="content">
+                <text class="cuIcon-fork text-grey"></text>
+                <text class="text-grey">工资查询</text>
+            </view>
+        </view>
+        <view wx:if="{{is_smzc==1}}" class="cu-item arrow" bindtap="adddetial_smzc">
+            <view class="content">
+                <text class="cuIcon-fork text-grey"></text>
+                <text class="text-grey">资产扫码</text>
+            </view>
+        </view>
+        <view wx:if="{{is_grzc==1}}" class="cu-item arrow" bindtap="adddetial_grzc">
+            <view class="content">
+                <text class="cuIcon-fork text-grey"></text>
+                <text class="text-grey">个人资产</text>
+            </view>
+        </view>
+        <view wx:if="{{is_bmzc==1}}" class="cu-item arrow" bindtap="adddetial_bmzc">
+            <view class="content">
+                <text class="cuIcon-fork text-grey"></text>
+                <text class="text-grey">部门资产</text>
+            </view>
+        </view>
+        <view class="cu-item arrow" bindtap="adddetial_fqhd">
+            <view class="content">
+                <text class="cuIcon-fork text-grey"></text>
+                <text class="text-grey">发起活动</text>
+            </view>
+        </view>
+        <view class="cu-item arrow" bindtap="adddetial_smqd">
+            <view class="content">
+                <text class="cuIcon-fork text-grey"></text>
+                <text class="text-grey">扫码签到</text>
+            </view>
+        </view>
+        <view class="cu-item arrow" bindtap="adddetial_yfq">
+            <view class="content">
+                <text class="cuIcon-fork text-grey"></text>
+                <text class="text-grey">已发起</text>
+            </view>
+        </view>
+        <view class="cu-item arrow" bindtap="adddetial_yqd">
+            <view class="content">
+                <text class="cuIcon-fork text-grey"></text>
+                <text class="text-grey">已签到</text>
+            </view>
+        </view>
+    </view>
+</scroll-view>

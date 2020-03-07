@@ -1,0 +1,872 @@
+<!--pages/gzcx/gzcx.wxml-->
+<view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="action">
+      <text class="cuIcon-title text-orange "></text> 工资查询
+    </view>
+    <picker mode="date" fields="month" value="{{inputTime}}"  bindchange="bindTimeChange" name="inputTime" style="margin-right: 20rpx;">
+			<view class="picker">
+				{{inputTime}}
+			</view>
+		</picker>
+</view>
+<view class="cu-list menu card-menu margin-top">
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-favorfill text-green"></text>
+        <text class="text-grey">实发工资</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">{{gongzi.Netcombined}}</text>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-favorfill text-green"></text>
+        <text class="text-grey">建行卡发放</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">{{gongzi.Ccbcardissuing}}</text>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-favorfill text-green"></text>
+        <text class="text-grey">工行卡发放</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">{{gongzi.Icbccardissuing}}</text>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-btn text-green"></text>
+        <text class="text-grey">基础</text>
+      </view>
+      <view class="action">
+        <button class="cu-btn round bg-green shadow" bindtap="showModal" data-target="DrawerModalL">
+         点击详情</button>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-btn text-green"></text>
+        <text class="text-grey">补贴</text>
+      </view>
+      <view class="action">
+        <button class="cu-btn round bg-green shadow" bindtap="showModal" data-target="DrawerModalL1">
+         点击详情</button>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-btn text-green"></text>
+        <text class="text-grey">扣款</text>
+      </view>
+      <view class="action">
+        <button class="cu-btn round bg-green shadow" bindtap="showModal" data-target="DrawerModalL2">
+         点击详情</button>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-btn text-green"></text>
+        <text class="text-grey">应发</text>
+      </view>
+      <view class="action">
+        <button class="cu-btn round bg-green shadow" bindtap="showModal" data-target="DrawerModalL3">
+         点击详情</button>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-btn text-green"></text>
+        <text class="text-grey">保险年金扣款</text>
+      </view>
+      <view class="action">
+        <button class="cu-btn round bg-green shadow" bindtap="showModal" data-target="DrawerModalL4">
+         点击详情</button>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-btn text-green"></text>
+        <text class="text-grey">其他扣款</text>
+      </view>
+      <view class="action">
+        <button class="cu-btn round bg-green shadow" bindtap="showModal" data-target="DrawerModalL5">
+         点击详情</button>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-btn text-green"></text>
+        <text class="text-grey">个税相关</text>
+      </view>
+      <view class="action">
+        <button class="cu-btn round bg-green shadow" bindtap="showModal" data-target="DrawerModalL6">
+         点击详情</button>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-btn text-green"></text>
+        <text class="text-grey">实发</text>
+      </view>
+      <view class="action">
+        <button class="cu-btn round bg-green shadow" bindtap="showModal" data-target="DrawerModalL7">
+         点击详情</button>
+      </view>
+    </view>
+  </view>
+<view class="cu-modal drawer-modal justify-start {{modalName=='DrawerModalL'?'show':''}}" bindtap="hideModal">
+  <view class="cu-dialog basis-lg" catchtap style="top:{{CustomBar}}px;height:calc(100vh - {{CustomBar}}px)">
+    <view class="cu-list menu text-left">
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">人员编号</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.EmplID}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">员工姓名</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.EmplName}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">薪资计算编号</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.WageCalID}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">部门名称</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.DptName}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">所在班组</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.xtPersonGroup}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">应出勤</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.ShouldDays}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">实出勤</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.RealDays}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">岗位基本</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.JobWageBase}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">效益工资</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.benefitWage}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">工龄工资</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.WrkYearsPay}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="cu-modal drawer-modal justify-start {{modalName=='DrawerModalL1'?'show':''}}" bindtap="hideModal">
+  <view class="cu-dialog basis-lg" catchtap style="">
+    <view class="cu-list menu text-left">
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">专项奖励</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.ChkBonus}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">技能津贴</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.TecSubsidy}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">误餐费</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.LoseLunch}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">住房提租补贴</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.TenementSubsidy}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">少数民族补贴</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.MinoritySubsidy}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">高温津贴</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.HighTempSubsidy}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">职务津贴</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.PositionSubsidy}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">保留补贴</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.ReserveSubsidy}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">夜班费</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.NightWorkFee}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">平日加班费</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.OrdinaryFee}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">节日加班费</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.HolidayFee}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">一次性发放</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.OnceOnlyWage}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">补最低</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.LowLimitRetro}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">年金补偿金</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.AnnuitySubsidy}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">补发工资</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.RetroactiveWage}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="cu-modal drawer-modal justify-start {{modalName=='DrawerModalL2'?'show':''}}" bindtap="hideModal">
+  <view class="cu-dialog basis-lg" catchtap style="top:{{CustomBar}}px;height:calc(100vh - {{CustomBar}}px)">
+    <view class="cu-list menu text-left">
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">事假扣款</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.PerLeaveDeduct}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">病假扣款</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.SickLeaveDeduct}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">探独子假扣款</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.HSTQDeduct}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">其他工资扣款</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.OtherDeduct}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="cu-modal drawer-modal justify-start {{modalName=='DrawerModalL3'?'show':''}}" bindtap="hideModal">
+  <view class="cu-dialog basis-lg" catchtap style="top:{{CustomBar}}px;height:calc(100vh - {{CustomBar}}px)">
+    <view class="cu-list menu text-left">
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">月工资总额</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.TotalWage}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">本次工资总额</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.Thistotalwages}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">其他工资总额</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.OtherWage}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">讲课费</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.Lecturefee}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">补充医疗保险1</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.Smedicainsurance1}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">其他应税收入</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.Othertaxable}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">婴幼补贴</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.Nappysubsidies}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">生育津贴</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.MaternitySubsidy}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">工伤津贴</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.WrkInjurySubsidy}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">代发社保返还</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.Undertakesreturn}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">补充医疗保险2</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.Smedicainsurance}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">减免税</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.Reduction}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">实发负数补零</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.Netnegativezeropa}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">应发合计</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.Shouldsend}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="cu-modal drawer-modal justify-start {{modalName=='DrawerModalL4'?'show':''}}" bindtap="hideModal">
+  <view class="cu-dialog basis-lg" catchtap style="top:{{CustomBar}}px;height:calc(100vh - {{CustomBar}}px)">
+    <view class="cu-list menu text-left">
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">养老保险</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.EndowmInsurance}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">医疗保险</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.MedicalInsurance}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">医疗大额</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.MedicalLagInsurance}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">失业保险</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.LoseWrkInsurance}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">住房公积金</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.HouseSurplus}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">年金2</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.Annuity2}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">调整社保扣款小计</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.Adsodeductsub}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">调整企业年金2</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.Adenterpris2}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">年金扣款小计</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.Pensiondeductions}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">年金扣款小计</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.Pensiondeductions2}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="cu-modal drawer-modal justify-start {{modalName=='DrawerModalL5'?'show':''}}" bindtap="hideModal">
+  <view class="cu-dialog basis-lg" catchtap style="top:{{CustomBar}}px;height:calc(100vh - {{CustomBar}}px)">
+    <view class="cu-list menu text-left">
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">房租小计</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.Rentsubtotal}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">会费</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.Tradeunionmembersh}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">其他扣款</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.Otherdeductions}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">本期应预扣预缴税额</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.ShouldPrepaidTaxCP}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">本期实际预扣预缴税额</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.RealPrepaidTaxCP}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="cu-modal drawer-modal justify-start {{modalName=='DrawerModalL6'?'show':''}}" bindtap="hideModal">
+  <view class="cu-dialog basis-lg" catchtap style="top:{{CustomBar}}px;height:calc(100vh - {{CustomBar}}px)">
+    <view class="cu-list menu text-left">
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">本期收入</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.RevenueCP}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">累计收入</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.RevenueSum}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">累计减除费用</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.DeductFeeSum}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">累计社保扣款小计</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.SodeductsubSum}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">累计调整社保扣款小计</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.AdSodeductsubSum}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">累计专项附加扣除</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.SpecAttachDeduSum}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">累计年金扣款小计</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.AnnuityDeductSum}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">累计年金扣款小计2</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.AnnuityDeductSum2}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">累计住房提租补贴</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.TenSubsidySum}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">累计调整住房提租补贴</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.AdTenSubsidySum}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">累计预扣预缴应纳税所得额</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.PrepaidTaxIncomeSum}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">累计已预扣预缴税额</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.RealPrepaidTaxSum}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">累计减免税</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.ReductionSum}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">扣款合计</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.Deductionscombined}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="cu-modal drawer-modal justify-start {{modalName=='DrawerModalL7'?'show':''}}" bindtap="hideModal">
+  <view class="cu-dialog basis-lg" catchtap style="top:{{CustomBar}}px;height:calc(100vh - {{CustomBar}}px)">
+    <view class="cu-list menu text-left">
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">工行卡发放</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.Icbccardissuing}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">建行卡发放</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.Ccbcardissuing}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">已发放工资小计</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.Subtotalissued}}</text>
+        </view>
+      </view>
+      <view class="cu-item1 {{menuArrow?'arrow':''}}">
+        <view class="content" style="font-size: 28rpx;">
+          <text class="cuIcon-favorfill text-green"></text>
+          <text class="text-grey">应发合计</text>
+        </view>
+        <view class="action">
+          <text class="text-grey text-sm">{{gongzi.Shouldsend}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-modal {{modalName=='Image'?'show':''}}">
+  <view class="cu-dialog1">
+    <view class="bg-img" style="background-image: url('https://wxdc.bsrse.com/media/image/loading-white.gif');height:200px;">
+      <view class="cu-bar justify-end text-white">
+        <view class="action" bindtap="hideModal">
+          <text class="cuIcon-close "></text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="action">
+      <text class="cuIcon-title text-orange "></text> 当月工资比例图
+    </view>
+</view>
+<view class="container" style="margin-top:30rpx">
+    <canvas canvas-id="pieCanvas" class="canvas" style="height:300px" bindtouchstart="touchHandler"></canvas>
+</view>

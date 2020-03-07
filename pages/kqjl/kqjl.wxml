@@ -1,0 +1,41 @@
+
+<!--index.wxml-->
+<calendar
+  calendarConfig="{{calendarConfig}}"
+  bind:onTapDay="onTapDay"
+  bind:afterTapDay="afterTapDay"
+  bind:onSwipe="onSwipe"
+  bind:whenChangeWeek="whenChangeWeek"
+  bind:whenChangeMonth="whenChangeMonth"
+  bind:afterCalendarRender="afterCalendarRender"
+></calendar>
+<view class="content-view">
+  <view class="today-bill">
+    考勤记录：
+  </view>
+  <scroll-view class="container" scroll-y="true">
+  <block wx:for="{{orderList}}" wx:key="">
+    <view class="orderList">
+      <view class="order-title">
+          <view class="order-content-info">
+          <view class="order-content-info-date">
+          打卡时间：{{item.kq_sj}}</view>
+          </view>
+        
+      </view>
+      <!-- <view class="order-content"> -->
+    </view>
+  </block> 
+</scroll-view>
+</view>
+<view class="cu-modal {{modalName=='Image'?'show':''}}">
+  <view class="cu-dialog1">
+    <view class="bg-img" style="background-image: url('https://wxdc.bsrse.com/media/image/loading-white.gif');height:200px;">
+      <view class="cu-bar justify-end text-white">
+        <view class="action" bindtap="hideModal">
+          <text class="cuIcon-close "></text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

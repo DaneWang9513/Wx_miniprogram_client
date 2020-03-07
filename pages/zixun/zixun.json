@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "navbar": "/component/navbar/index"
+  },
+  "navigationBarTitleText": "京车资讯"
+}
